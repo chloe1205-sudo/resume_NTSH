@@ -3,45 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ask a Question</title>
+    <title>課外活動 | 個人學習歷程與自我介紹</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
+            background-color: #f8f9fa;
             color: #333;
+            line-height: 1.6;
         }
         header {
             background-color: #4CAF50;
             color: white;
-            padding: 10px;
+            padding: 25px 20px;
             text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
-        section {
-            margin: 20px;
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
         }
-        .form-box {
+        header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        /* 導覽按鈕區 */
+        .nav-bar {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-home {
+            background-color: #ffffff;
+            color: #4CAF50;
+            border: 2px solid #4CAF50;
+            padding: 8px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        .btn-home:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        /* 活動卡片網格 */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .activity-card {
             background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        .activity-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #e0e0e0;
+        }
+        .activity-content {
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .activity-tag {
+            display: inline-block;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            font-size: 0.85rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+        .activity-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        .activity-date {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 12px;
+        }
+        .activity-desc {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        .activity-reflection {
+            background-color: #f1f8e9;
+            padding: 10px 12px;
+            border-left: 4px solid #4CAF50;
+            font-size: 0.9rem;
+            color: #333;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Q&A 提問表單區 */
+        .qa-section {
+            background-color: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-top: 30px;
+        }
+        .qa-section h2 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 8px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        .form-group input[readonly] {
+            background-color: #f5f5f5;
+            color: #666;
+        }
+        .btn-submit {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+        }
+        .btn-submit:hover {
+            background-color: #43a047;
         }
     </style>
 </head>
 <body>
+
     <header>
-        <h1>課外活動</h1>
+        <h1>課外活動與學習歷程</h1>
+        <p>探索我的社團經驗、志工服務與多元表現</p>
     </header>
-    <section>
-        <div class="form-box">
+
+    <div class="container">
+        <!-- 上方選單 -->
+        <div class="nav-bar">
+            <span>多元表現展示區</span>
+            <button class="btn-home" onclick="window.location.href='/'">← 回首頁</button>
+        </div>
+
+        <!-- 課外活動卡片列表 -->
+        <div class="activities-grid">
+            
+            <!-- 活動 1 -->
+            <div class="activity-card">
+                <!-- 請替換 src 為你的照片路徑，或直接放圖片網址 -->
+                <img src="/static/images/activity1.jpg" alt="社團活動照片" class="activity-img" onerror="this.src='https://via.placeholder.com/400x250?text=活動照片1'">
+                <div class="activity-content">
+                    <span class="activity-tag">社團幹部</span>
+                    <h2 class="activity-title">吉他社副社長與成果發表總召</h2>
+                    <p class="activity-date">2025 年 9 月 - 2026 年 6 月</p>
+                    <p class="activity-desc">負責規劃年度成果發表會，協調各組分工與音樂節目編排，並帶領 30 位學弟妹進行每週社課練習。</p>
+                    <div class="activity-reflection">
+                        <strong>心得收穫：</strong> 提升了團隊溝通與危機處理能力，學會在時間緊迫下排解問題。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 活動 2 -->
+            <div class="activity-card">
+                <img src="/static/images/activity2.jpg" alt="志工服務照片" class="activity-img" onerror="this.src='https://via.placeholder.com/400x250?text=活動照片2'">
+                <div class="activity-content">
+                    <span class="activity-tag">志工服務</span>
+                    <h2 class="activity-title">偏鄉國小科普陪伴營服務員</h2>
+                    <p class="activity-date">2025 年 7 月</p>
+                    <p class="activity-desc">設計趣味科學實驗課程，前往偏鄉國小進行為期三天的科普教學與營隊活動，引導學童體驗科學樂趣。</p>
+                    <div class="activity-reflection">
+                        <strong>心得收穫：</strong> 學會用淺顯易懂的語言說明複雜概念，並培養耐心與同理心。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 活動 3 -->
+            <div class="activity-card">
+                <img src="/static/images/activity3.jpg" alt="競賽活動照片" class="activity-img" onerror="this.src='https://via.placeholder.com/400x250?text=活動照片3'">
+                <div class="activity-content">
+                    <span class="activity-tag">競賽經驗</span>
+                    <h2 class="activity-title">全國高中生科技黑客松競賽</h2>
+                    <p class="activity-date">2026 年 2 月</p>
+                    <p class="activity-desc">與組員共同開發校園二手書循環平台專案，運用 HTML/CSS 與 Python 進行前端與後端整合。</p>
+                    <div class="activity-reflection">
+                        <strong>心得收穫：</strong> 奠定專案開發基礎，累積跨領域合作經驗。
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 互動問答區（保留原本與後端 Flask 互動的功能） -->
+        <div class="qa-section">
+            <h2>關於我的活動提問</h2>
             <form action="/activities" method="post">
-                <label for="question">你的問題:</label><br>
-                <input type="text" id="question" name="question" value="{{ question }}"><br><br>
-                <label for="answer">答案:</label><br>
-                <input type="text" id="answer" name="answer" readonly value="{{ answer }}"><br><br>
-                <input type="submit" value="送出">
-                <input type="button" value="回首頁" onclick="window.location.href='/'">
+                <div class="form-group">
+                    <label for="question">你想了解關於我課外活動的什麼細節？</label>
+                    <input type="text" id="question" name="question" placeholder="例如：你在吉他社遇到最大的挑戰是什麼？" value="{{ question }}">
+                </div>
+                
+                <div class="form-group">
+                    <label for="answer">回答 / 回應：</label>
+                    <input type="text" id="answer" name="answer" readonly value="{{ answer }}">
+                </div>
+
+                <button type="submit" class="btn-submit">送出詢問</button>
             </form>
         </div>
-    </section>
+
+    </div>
+
 </body>
 </html>
