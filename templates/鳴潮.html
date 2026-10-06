@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鳴潮 Wuthering Waves - 遊戲介紹</title>
+  <style>
+    /* 全局樣式 reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #0f141c;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    /* 導覽列 */
+    header {
+      background-color: rgba(15, 20, 28, 0.9);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .back-btn {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+    .back-btn:hover {
+      color: #7dd3fc;
+    }
+
+    /* 主視覺 Banner */
+    .hero {
+      position: relative;
+      background: linear-gradient(180deg, rgba(15, 20, 28, 0.3) 0%, rgba(15, 20, 28, 1) 100%),
+                  url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1600') center/cover no-repeat;
+      height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.8);
+      color: #ffffff;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      color: #94a3b8;
+      max-width: 600px;
+    }
+
+    /* 主要內容區塊 */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      color: #38bdf8;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid #38bdf8;
+      padding-left: 0.75rem;
+    }
+
+    .intro-box {
+      background-color: #1e293b;
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* 遊戲特色格線 */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .feature-card {
+      background-color: #1e293b;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: #38bdf8;
+    }
+    .feature-card h3 {
+      font-size: 1.3rem;
+      color: #f1f5f9;
+      margin-bottom: 0.75rem;
+    }
+    .feature-card p {
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    /* 人物與資訊卡 */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .info-item {
+      background-color: #162032;
+      padding: 1.2rem;
+      border-radius: 8px;
+    }
+    .info-item h4 {
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.3rem;
+    }
+    .info-item p {
+      color: #38bdf8;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    /* 頁尾 */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #0b0f17;
+      color: #64748b;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 頂部導覽列 -->
+  <header>
+    <a href="index.html" class="back-btn">← 返回首頁</a>
+    <h2>遊戲資料庫</h2>
+  </header>
+
+  <!-- 主視覺形象區 -->
+  <section class="hero">
+    <h1>鳴潮 Wuthering Waves</h1>
+    <p>漂泊的靈魂，將在悲鳴之後重構世界</p>
+  </section>
+
+  <!-- 主要內容區 -->
+  <main class="container">
+
+    <!-- 遊戲簡介 -->
+    <section>
+      <h2 class="section-title">遊戲簡介</h2>
+      <div class="intro-box">
+        <p>
+          《鳴潮》（Wuthering Waves）是由庫洛遊戲（Kuro Games）自主研發的開放世界動作角色扮演遊戲。
+          玩家將扮演從長久沉睡中甦醒的「漂泊者」（Rover），在經歷「悲鳴」浩劫後的新世界中展開探索，結識各式各樣的「共鳴者」夥伴，共同面對強大的異象敵人，並逐步揭開自己身世與這個世界背後的真相。
+        </p>
+      </div>
+    </section>
+
+    <!-- 核心特色 -->
+    <section>
+      <h2 class="section-title">遊戲核心特色</h2>
+      <div class="features-grid">
+        
+        <div class="feature-card">
+          <h3>⚡ 爽快流暢的極限戰鬥</h3>
+          <p>主打高節奏的動作打擊感，具備「極限閃避」、「彈刀（PARRY）」、「協奏技能」與「變奏入場」等多維度戰鬥機制，體驗流暢順暢的操作樂趣。</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>👻 獨特「聲骸」收集系統</h3>
+          <p>擊敗大世界中的怪物後有機會將其吸收為「聲骸」（Echoes）。聲骸不僅能提供屬性加成與套裝效果，還能直接在戰鬥中召喚出來進行攻擊或輔助。</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>🏃 高自由度大世界跑圖</h3>
+          <p>擁有強大的移動動作設計，包含壁跑、鉤索、滑翔與蹬牆跳，擺脫傳統體力限制，讓大地圖探索變得極具速度感與立體感。</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>🌏 獨特災後末世美學</h3>
+          <p>融合了寫實灰調與科幻幻想風格，呈現出受「悲鳴」異象侵蝕後獨特的「海蝕現象」與殘破卻壯麗的大自然景觀。</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 概覽資訊 -->
+    <section>
+      <h2 class="section-title">基本資訊</h2>
+      <div class="info-grid">
+        <div class="info-item">
+          <h4>開發商 / 發行商</h4>
+          <p>庫洛遊戲 (Kuro Games)</p>
+        </div>
+        <div class="info-item">
+          <h4>遊戲類型</h4>
+          <p>開放世界動作 RPG</p>
+        </div>
+        <div class="info-item">
+          <h4>支援平台</h4>
+          <p>PC / Android / iOS / PS5</p>
+        </div>
+        <div class="info-item">
+          <h4>資費方式</h4>
+          <p>免費遊玩（含內購）</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; Wuthering Waves Fan Page. All images belong to Kuro Games.</p>
+  </footer>
+
+</body>
+</html>
