@@ -104,7 +104,7 @@ def ai():
     return render_template('ai.html')
     
 @app.route('/鳴潮')
-def ai():
+def 鳴潮():
     return render_template('鳴潮.html')
 
 
