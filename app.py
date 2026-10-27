@@ -78,9 +78,9 @@ def ask2 ( ) :
         # 2. 讀取學生的問題
         question1 = request.form.get('question', '').strip()
         #3. 查詢題庫的對應答案
-        # answer1 = zh_ko_dict.get(question,"抱歉,我目前沒有這個詞的韓文對應。”)
+        # answer1 = zh_jp_dict.get(question,"抱歉,我目前沒有這個詞的韓文對應。”)
 
-        answer1 = zh_ko_dict[question1]
+        answer1 = zh_ip_dict[question1]
         # 4. 回傳給學生
         return render_template('ask2.html', question-question1, answer=answer1)
 #GET 時給空白欄位
@@ -136,7 +136,7 @@ def ai():
 @app.route('/鳴潮')
 def 鳴潮():
     return render_template('鳴潮.html')
-
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
