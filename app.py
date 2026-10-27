@@ -73,7 +73,7 @@ def activities():
 
 #使用dict 作為中日翻譯的題庫
 @app.route('/ask2', methods=['GET', 'POST'])
-def ask2 ( ) :
+def ask2():
     if request.method == 'POST':
         # 2. 讀取學生的問題
         question1 = request.form.get('question', '').strip()
